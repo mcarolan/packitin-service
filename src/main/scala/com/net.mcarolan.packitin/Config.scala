@@ -1,8 +1,9 @@
 package net.mcarolan.packitin
 
+import com.typesafe.config.ConfigFactory
+
 import scalaz._
 import Scalaz._
-import com.typesafe.config.{ Config => TypesafeConfig, ConfigFactory => TypesafeConfigFactory }
 import net.mcarolan.packitin.util.TypesafeConfigUtil
 
 case class DatabaseConfig(driverClass: String, jdbcUrl: String, username: String, password: String)
@@ -16,7 +17,7 @@ case object Config extends TypesafeConfigUtil {
     config.getStringValidationNel("database.username") |@|
     config.getStringValidationNel("database.password"))(DatabaseConfig.apply)
 
-  def read(config: TypesafeConfig = TypesafeConfigFactory.load()): ValidationNel[String, Config] =
+  def read(config: TypesafeConfig = ConfigFactory.load()): ValidationNel[String, Config] =
     for {
       databaseConfig <- readDatabaseConfig(config)
     }

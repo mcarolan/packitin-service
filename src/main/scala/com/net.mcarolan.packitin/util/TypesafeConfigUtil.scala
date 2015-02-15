@@ -3,7 +3,7 @@ package net.mcarolan.packitin.util
 import scala.util.{Failure, Success, Try}
 import scalaz.{Success => _, Failure => _, _}
 import Scalaz._
-import com.typesafe.config.{Config => TypesafeConfig}
+import net.mcarolan.packitin._
 
 trait TypesafeConfigUtil {
 
