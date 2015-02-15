@@ -1,4 +1,4 @@
-package com.example
+package net.mcarolan.packitin
 
 import akka.actor.Actor
 import spray.routing._

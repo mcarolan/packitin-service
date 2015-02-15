@@ -1,4 +1,4 @@
-package com.example
+package net.mcarolan.packitin
 
 import org.specs2.mutable.Specification
 import spray.testkit.Specs2RouteTest
