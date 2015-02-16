@@ -17,7 +17,7 @@ object Boot extends App {
     case Success(config) => start(config)
 
     case Failure(reasons) => {
-      val reasonsPretty = reasons.list.toSet.mkString(", ")
+      val reasonsPretty = reasons.list.toSet.mkString("\n + ")
       throw new IllegalStateException(s"Could not read config because: $reasonsPretty")
     }
 
@@ -28,7 +28,10 @@ object Boot extends App {
     implicit val system = ActorSystem("on-spray-can")
 
     // create and start our service actor
-    val service = system.actorOf(Props[MyServiceActor], "demo-service")
+    val service = system.actorOf(Props[MyServiceActor], "packitin")
+
+    // flyway migrations
+    val appliedMigrations = FlywayMigrations.migrateToLatest(config.database)
 
     implicit val timeout = Timeout(5.seconds)
     // start a new HTTP server on port 8080 with our service actor as the handler

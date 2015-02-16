@@ -7,7 +7,7 @@ import Scalaz._
 import net.mcarolan.packitin.util.TypesafeConfigUtil
 
 case class DatabaseConfig(driverClass: String, jdbcUrl: String, username: String, password: String)
-case class Config(databaseConfig: DatabaseConfig)
+case class Config(database: DatabaseConfig)
 
 case object Config extends TypesafeConfigUtil {
 
