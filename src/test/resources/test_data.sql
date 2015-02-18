@@ -1,2 +1,2 @@
-INSERT INTO list(name) VALUES ('Skiing')
-INSERT INTO list(name) VALUES ('Snowboarding')
+INSERT INTO packinglist(name) VALUES ('Skiing')
+INSERT INTO packinglist(name) VALUES ('Snowboarding')

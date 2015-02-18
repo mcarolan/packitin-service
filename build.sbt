@@ -21,7 +21,8 @@ libraryDependencies ++= {
     "com.googlecode.flyway" % "flyway-core" % "2.3.1",
     "org.scalaz" %% "scalaz-core" % "7.1.0",
     "com.typesafe" % "config" % "1.2.1",
-    "org.typelevel" %% "scalaz-specs2" % "0.3.0" % "test"
+    "org.typelevel" %% "scalaz-specs2" % "0.3.0" % "test",
+    "io.argonaut" %% "argonaut" % "6.1-M5"
   )
 }
 

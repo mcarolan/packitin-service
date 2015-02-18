@@ -17,7 +17,7 @@ class TestDatabaseSpec extends Specification with TestDatabase {
 
     }
 
-    case class List(tag: Tag) extends Table[(Int)](tag, "list") {
+    case class PackingList(tag: Tag) extends Table[(Int)](tag, "packinglist") {
 
       def id = column[Int]("id", O.PrimaryKey)
 
@@ -26,7 +26,7 @@ class TestDatabaseSpec extends Specification with TestDatabase {
     }
 
     private[this] val schemaVersions = TableQuery[SchemaVersion]
-    private[this] val lists = TableQuery[List]
+    private[this] val lists = TableQuery[PackingList]
 
     def numberOfSchemaVersionRows(): Int = database withSession { implicit session =>
       schemaVersions.length.run
